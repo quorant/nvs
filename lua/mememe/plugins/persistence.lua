@@ -3,7 +3,7 @@ return {
   event = "BufReadPre", -- this will only start session saving when an actual file was opened
   lazy = false,
   opts = {
-    -- add any custom options here
+    dir = vim.fn.stdpath("state") .. "~/sessions/",   -- add any custom options here
   },
   vim.keymap.set("n", "<leader>qs", function() require("persistence").load() end),
 
