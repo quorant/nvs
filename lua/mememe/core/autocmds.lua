@@ -1,0 +1,24 @@
+local autocmd_group = vim.api.nvim_create_augroup("UserAutocmds", { clear = true })
+
+-- vim.api.nvim_create_autocmd({"CmdlineEnter"}, {
+--   callback = function()
+--     vim.wo.relativenumber = false
+--     vim.wo.number = true
+--     if vim.fn.getcmdline() == "" then
+--       vim.cmd("redraw")
+--     end
+--     -- vim.cmd("redraw")
+--   end,
+-- })
+--
+-- vim.api.nvim_create_autocmd({"CmdlineLeave"}, {
+--   callback = function()
+--     vim.wo.relativenumber = true
+--     vim.wo.number = true
+--     if vim.fn.mode(1) == 'c' then
+--       vim.cmd("redraw")
+--     end
+--     -- vim.cmd("redraw")
+--   end,
+-- })
+--
