@@ -4,6 +4,7 @@ return {
     'nvim-lua/plenary.nvim',
     -- optional but recommended
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    "DrKJeff16/project.nvim",
   },
   config = function()
     local telescope = require("telescope")
