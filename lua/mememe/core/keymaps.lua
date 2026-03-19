@@ -1,9 +1,6 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
--- Explorer
-map("n", "<leader>pv", vim.cmd.Ex, opts)
-
 -- Wrapped lines
 map({ "n", "x" }, "j", "gj", opts)
 map({ "n", "x" }, "k", "gk", opts)
