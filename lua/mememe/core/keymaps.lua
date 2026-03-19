@@ -54,6 +54,9 @@ map("n", "<leader>t", ":tab sb%<CR>", opts)
 -- Clear search highlight
 map("n", "<leader>/", ":nohlsearch<CR>", opts)
 
+-- Select all
+map("n", "<leader>va", "ggVG$")
+
 -- Resize windows
 vim.keymap.set("n", "<C-left>", "<cmd>vertical resize -1<CR>")  -- Narrow current split
 vim.keymap.set("n", "<C-right>", "<cmd>vertical resize +1<CR>")  -- Widen current split

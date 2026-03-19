@@ -1,25 +1,35 @@
 local autocmd_group = vim.api.nvim_create_augroup("UserAutocmds", { clear = true })
 
 -- Makes each tab have its own working directory
---
--- vim.api.nvim_create_autocmd("TabEnter", {
---   callback = function()
---     if vim.t.cwd then
---       vim.cmd("tcd " .. vim.t.cwd)
---     end
---   end,
--- })
---
--- vim.api.nvim_create_autocmd("DirChanged", {
---   callback = function()
---     vim.t.cwd = vim.fn.getcwd()
---   end,
--- })
+vim.t.cwd = vim.t.cwd or vim.fn.getcwd()
 
------------------------------
+-- Update tab cwd when directory changes
+vim.api.nvim_create_autocmd("DirChanged", {
+  callback = function()
+    vim.t.cwd = vim.fn.getcwd()
+  end,
+})
 
--- Stores directory history
+-- Set tab cwd when entering a tab
+vim.api.nvim_create_autocmd("TabEnter", {
+  callback = function()
+    if vim.t.cwd then
+      vim.cmd("tcd " .. vim.t.cwd)
+    end
+  end,
+})
 
+-- When opening a new file, set tab cwd to its directory
+vim.api.nvim_create_autocmd("BufReadPost", {
+  callback = function()
+    local file_path = vim.fn.expand("%:p")
+    if file_path ~= "" then
+      local file_dir = vim.fn.fnamemodify(file_path, ":h")
+      vim.t.cwd = file_dir
+      vim.cmd("tcd " .. file_dir)
+    end
+  end,
+})
 
 -----------------------------
 
