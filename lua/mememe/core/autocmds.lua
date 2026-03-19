@@ -31,6 +31,28 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
+
+-----------------------------
+
+vim.api.nvim_create_autocmd("SessionLoadPost", {
+  callback = function()
+    -- Get all buffers
+    local buffers = vim.api.nvim_list_bufs()
+    
+    for _, bufnr in ipairs(buffers) do
+      if vim.api.nvim_buf_is_valid(bufnr) then
+        local bufname = vim.api.nvim_buf_get_name(bufnr)
+        local buftype = vim.api.nvim_buf_get_option(bufnr, "buftype")
+        
+        -- Kill any neo-tree buffer
+        if bufname:match("neo%-tree") or buftype == "neo-tree" then
+          pcall(vim.api.nvim_buf_delete, bufnr, { force = true })
+        end
+      end
+    end
+  end,
+})
+
 -----------------------------
 
 -- The following is supposed to use relative numbers whenever not in command 
