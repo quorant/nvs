@@ -37,11 +37,6 @@ map({ "n", "v" }, "<leader>y", [["+y]], opts)
 map("n", "<leader>Y", [["+Y]], opts)
 
 -- Buffers
-map("n", "<leader>b", "<Cmd>ls<CR>:b<Space>", opts)
--- vim.keymap.set("n", "<leader>b", function()
---   vim.cmd("ls")  -- show buffers
---   vim.cmd("b ")  -- simulate typing :b<Space> and Enter
--- end, opts)
 map("n", "<leader><Tab>", ":b#<CR>", opts)
 map("n", "<leader>n", ":bnext<CR>", opts)
 map("n", "<leader>p", ":bprevious<CR>", opts)
