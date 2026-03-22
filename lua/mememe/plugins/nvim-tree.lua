@@ -11,6 +11,9 @@ return {
         enable = true,
         update_root = false,
       },
+      view = {
+        adaptive_size = true,
+      },
     })
     local api = require("nvim-tree.api")
     vim.keymap.set("n", "<C-p>", api.tree.toggle)

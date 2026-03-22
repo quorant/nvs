@@ -31,7 +31,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
-
 -----------------------------
 
 vim.api.nvim_create_autocmd("SessionLoadPost", {
@@ -59,27 +58,21 @@ vim.api.nvim_create_autocmd("SessionLoadPost", {
 -- mode, and switch to absolute line numbers in command mode.
 -- It *mostly* works, but calling redraw makes other commands like <leader>b
 -- not work properly.
---
--- vim.api.nvim_create_autocmd({"CmdlineEnter"}, {
---   callback = function()
---     vim.wo.relativenumber = false
---     vim.wo.number = true
---     if vim.fn.getcmdline() == "" then
---       vim.cmd("redraw")
---     end
---     -- vim.cmd("redraw")
---   end,
--- })
---
--- vim.api.nvim_create_autocmd({"CmdlineLeave"}, {
---   callback = function()
---     vim.wo.relativenumber = true
---     vim.wo.number = true
---     if vim.fn.mode(1) == 'c' then
---       vim.cmd("redraw")
---     end
---     -- vim.cmd("redraw")
---   end,
--- })
+
+vim.api.nvim_create_autocmd({"CmdlineEnter"}, {
+  callback = function()
+    vim.wo.relativenumber = false
+    vim.wo.number = true
+    vim.cmd("redraw")
+  end,
+})
+
+vim.api.nvim_create_autocmd({"CmdlineLeave"}, {
+  callback = function()
+    vim.wo.relativenumber = true
+    vim.wo.number = true
+    vim.cmd("redraw")
+  end,
+})
 
 -----------------------------

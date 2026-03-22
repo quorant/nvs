@@ -7,7 +7,7 @@ opt.wrap = false
 
 -- line numbers
 opt.number = true
-opt.relativenumber = false
+opt.relativenumber = true
 
 -- search settings
 opt.ignorecase = true
