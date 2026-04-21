@@ -9,10 +9,13 @@ return {
     require("nvim-tree").setup({
       update_focused_file = {
         enable = true,
-        update_root = false,
+        update_root = nil,
       },
       view = {
-        adaptive_size = true,
+        adaptive_size = false,
+      },
+      filters = {
+        git_ignored = false,
       },
     })
     local api = require("nvim-tree.api")
