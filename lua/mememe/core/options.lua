@@ -2,6 +2,9 @@ local opt = vim.opt
 
 opt.rtp:append(vim.fn.stdpath("data") .. "/site")
 
+-- sets a marker at column 80
+opt.colorcolumn="80"
+
 -- line wrapping 
 opt.wrap = false
 
