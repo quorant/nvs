@@ -8,7 +8,7 @@ return {
 
     require("nvim-treesitter.config").setup({
       parser_install_dir = parser_install_dir,
-      ensure_installed = { 
+      ensure_installed = {
         "python",
         "javascript",
 				"c",
